@@ -89,4 +89,5 @@ jobs:
            helm registry login ${{ env.containerRegistry }} --username ${{ secrets.ACR_USERNAME }} --password ${{ secrets.ACR_PASSWORD }}
            helm chart push ${{ env.containerRegistry }}/helm/content-web:v${{ env.tag }}
          env:
+           KUBECONFIG: './kubeconfig'
            HELM_EXPERIMENTAL_OCI: 1
